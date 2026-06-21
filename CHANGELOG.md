@@ -5,6 +5,37 @@ All notable changes to SymbiontAI are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] — 2026-06-21
+
+### Added
+- **Handoffs (terminal CLI ⇄ IDE).** A new **handoffs** sidebar tab implements a
+  standardized handoff in both directions:
+  - **Receive** (outside → IDE): load a `HANDOFF.md`, view the contract, kick it
+    off with Claude/Codex (the agent confirms and waits for your go), and
+    **announce / claim / release** on the package relay.
+  - **Produce** (IDE → outside): scaffold a package (`HANDOFF.md` + `handoff.json`
+    + `state.json` + `relay.jsonl`) natively — no Python — and copy the kickoff
+    prompt for an external session.
+  - The standard, templates, and Python kit are documented in
+    `Symbiont Docs/handoffs/` (design credited to a separate session).
+- **Per-agent session id + name in the title**, with a rename (✎) button; a
+  reusable in-app input dialog (Electron disables `window.prompt`).
+- **Bypass-mode warning** badge in the top bar with a hover tooltip explaining
+  the autonomous-in-isolated-worktree model.
+- **Clear button** (with a Yes/No confirmation modal) for the events / logs /
+  conversation panels.
+
+### Changed
+- Removed the estimated **context %** from the statusline (it wasn't the real
+  provider value); the statusline now shows model · effort and real usage only.
+- Worktree statusline labels clarified ("project root (chat)", "…(review,
+  read-only)").
+- `@skill:`/`@agent:` now inject the **file path** (the agent reads it) instead
+  of pasting the whole file every turn — cheaper and works for both providers.
+- "New chat" clears the session name/id (not just the content).
+- `@all /converse …` (and similar) now runs the command instead of sending the
+  literal text to the agents.
+
 ## [1.3.0] — 2026-06-21
 
 ### Added
@@ -201,6 +232,7 @@ First packaged release of the SymbiontAI desktop app.
   worktree-per-task isolation, rule-based router + DAG scheduler, turn-based
   mailbox, the symbiosis review loop, and an Ink TUI.
 
+[1.4.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.4.0
 [1.3.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.3.0
 [1.2.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.2.0
 [1.1.2]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.1.2

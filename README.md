@@ -53,7 +53,7 @@ Every release ships a `checksums.txt` with SHA-256 hashes.
 
 ```powershell
 # Windows (PowerShell)
-Get-FileHash .\SymbiontAI-1.4.0-win32-x64.zip -Algorithm SHA256
+Get-FileHash .\SymbiontAI-2.0.0-win32-x64.zip -Algorithm SHA256
 ```
 
 Compare the result with the value in `checksums.txt`.

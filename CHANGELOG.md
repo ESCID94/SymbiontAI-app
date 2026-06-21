@@ -5,6 +5,43 @@ All notable changes to SymbiontAI are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] — 2026-06-21
+
+### Added
+- **Live conversation control (Stop / Queue / Steer).** Each agent pane now has a
+  **⏹ Stop** button that interrupts the agent's current turn *and* clears its
+  queue. Sending a message to an agent that is mid-turn opens an inline
+  **Queue · Steer · Cancel** chooser (`Q` / `S` / `Esc`): **Queue** runs your
+  message after the current turn; **Steer** interrupts the current turn and runs
+  yours immediately. Interrupting recreates the live session from its stored
+  resume id, so conversation history is preserved.
+- **Editable message queue per agent.** Messages waiting behind a running turn are
+  shown in a per-pane strip; each can be edited in place (Enter to save) or
+  removed while it is still queued. The strip updates live as the queue drains.
+- **Terminal-style command history.** ↑/↓ in the command bar walk previously sent
+  lines (the in-progress draft is preserved as the newest entry); the autocomplete
+  popup still owns ↑/↓ while it is open.
+- **`/goal` command.** Set a standing team goal that is announced once to both
+  agents and re-injected as a context line on every subsequent turn, so it stays
+  in front of the team. `/goal` shows the current goal; `/goal clear` unsets it.
+- **Modern file tree.** The explorer is now a proper collapsible IDE tree:
+  folders-first ordering, persistent expand/collapse across refreshes, open/closed
+  folder glyphs, and colored file-type monograms (TS, JS, JSON, MD, CSS, PY, …).
+- **Tool-call detail in agent panes.** Tool/command events now show their input
+  (the file path, command, or pattern) next to the tool name instead of a bare
+  `· Read` / `· Grep` — so you can see *what* an agent is doing as it works.
+
+### Changed
+- The per-provider chat path moved from implicit promise-chaining to an explicit,
+  inspectable queue in the orchestrator (`stopChat` / `getChatQueue` /
+  `editChatQueued` / `removeChatQueued`, plus a `steer` send mode). `/converse`
+  and existing call sites are unchanged (they default to `queue`).
+
+### Notes
+- This is the first **major** bump: it adds a new conversation-control surface and
+  reworks the file explorer. No architecture invariants changed; the core is still
+  the single writer and agents still run only inside their worktrees/sessions.
+
 ## [1.4.0] — 2026-06-21
 
 ### Added
@@ -232,6 +269,7 @@ First packaged release of the SymbiontAI desktop app.
   worktree-per-task isolation, rule-based router + DAG scheduler, turn-based
   mailbox, the symbiosis review loop, and an Ink TUI.
 
+[2.0.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v2.0.0
 [1.4.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.4.0
 [1.3.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.3.0
 [1.2.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.2.0

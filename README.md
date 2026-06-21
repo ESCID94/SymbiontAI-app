@@ -12,6 +12,10 @@
 > The application's source code is private; this repository hosts the releases,
 > documentation, and release notes only.
 
+<p align="center">
+  <img src="assets/screenshots/app.png" width="900" alt="SymbiontAI desktop IDE — Claude and Codex agents side by side, task board, real usage statuslines" />
+</p>
+
 SymbiontAI is a **local desktop IDE** that runs **Claude Code** and **Codex**
 side by side on the same codebase and makes them work *together*: a shared task
 board, git-worktree isolation per task, turn-based messaging between the agents,

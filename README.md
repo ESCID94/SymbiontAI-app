@@ -53,7 +53,7 @@ Every release ships a `checksums.txt` with SHA-256 hashes.
 
 ```powershell
 # Windows (PowerShell)
-Get-FileHash .\SymbiontAI-1.1.2-win32-x64.zip -Algorithm SHA256
+Get-FileHash .\SymbiontAI-1.2.0-win32-x64.zip -Algorithm SHA256
 ```
 
 Compare the result with the value in `checksums.txt`.
@@ -111,6 +111,13 @@ See [`SECURITY.md`](SECURITY.md) to report a vulnerability.
 - **Documentation, screenshots, and mockups:** Creative Commons Attribution 4.0
   (CC BY 4.0).
 - **"SymbiontAI" name and logo:** all rights reserved.
+
+## Feedback
+
+Have feedback, a bug report, or a feature request? Please use our
+**[feedback form](https://forms.gle/HdXv729bSPJeta3C8)** — it directly shapes
+SymbiontAI. (There's also a **Give Feedback** button at the top of the
+[project page](https://escid94.github.io/SymbiontAI-app/).)
 
 ## Changelog
 

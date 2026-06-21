@@ -5,6 +5,39 @@ All notable changes to SymbiontAI are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] — 2026-06-21
+
+### Added
+- **Fully customizable panel layout.** claude, codex, and a tabbed viewer/editor
+  ("docs") panel are now movable panels. Each can sit in the **center** (as a
+  resizable column), move to the **right sidebar**, **hide**, or **maximize**
+  (fill the center). Use the per-panel dropdown or the **⊞ panels** menu. The
+  center shows 1–3 columns side by side. By default the viewer/editor panel is
+  visible in the center as tabs (no longer hidden).
+- **Double-click to open.** Double-clicking a file in the tree, or an agent or
+  skill in the sidebar, opens it directly in the viewer.
+- **Persona control.** "Use as persona" now shows an active-persona banner and a
+  one-click **remove**, with a tooltip explaining it applies the agent's persona
+  as system context for dispatched coding tasks (/work, /symbiose, /deliver).
+- **Unified right-sidebar tabs.** Panels moved to the right sidebar now share one
+  tab bar with the sidebar tabs (tree/tasks/env/…), so e.g. the viewer/editor and
+  env appear as tabs together instead of separate stacked regions.
+- **Pasted screenshots are now readable by the agents.** A pasted image is saved
+  and referenced by its absolute path with an instruction to read it, so Claude
+  and Codex can actually view it (previously only a filename was passed).
+- **Feedback link** in the in-app guide, the public site, and the README.
+
+### Fixed
+- **Left sidebar is now resizable** — its drag handle referenced a wrong element
+  id and silently failed.
+- **Precise column resizing.** Dragging dividers between center columns is now
+  pixel-accurate via explicit flex-basis (the previous approach scaled by panel
+  count and jumped).
+- A newly shown center panel no longer renders at ~0px width next to columns with
+  stale widths; widths reset fairly when the set of center columns changes.
+- External links (e.g. the feedback form) open in the system browser, not inside
+  the app window.
+
 ## [1.1.2] — 2026-06-21
 
 ### Fixed
@@ -139,6 +172,7 @@ First packaged release of the SymbiontAI desktop app.
   worktree-per-task isolation, rule-based router + DAG scheduler, turn-based
   mailbox, the symbiosis review loop, and an Ink TUI.
 
+[1.2.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.2.0
 [1.1.2]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.1.2
 [1.1.1]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.1.1
 [1.1.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.1.0

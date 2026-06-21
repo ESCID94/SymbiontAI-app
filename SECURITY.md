@@ -37,12 +37,12 @@ download before running it:
 
 ```powershell
 # Windows (PowerShell)
-Get-FileHash .\SymbiontAI-1.1.2-win32-x64.zip -Algorithm SHA256
+Get-FileHash .\SymbiontAI-1.2.0-win32-x64.zip -Algorithm SHA256
 ```
 
 ```bash
 # macOS / Linux
-shasum -a 256 SymbiontAI-1.1.2-win32-x64.zip
+shasum -a 256 SymbiontAI-1.2.0-win32-x64.zip
 ```
 
 Compare the output against the value in `checksums.txt`.

@@ -1,0 +1,28 @@
+<svg width="128" height="128" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SymbiontAI">
+  <defs>
+    <linearGradient id="sym-bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1a2030"/>
+      <stop offset="1" stop-color="#0e1016"/>
+    </linearGradient>
+    <linearGradient id="sym-c" x1="14" y1="20" x2="34" y2="46" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6fe0ef"/>
+      <stop offset="1" stop-color="#3aa6bd"/>
+    </linearGradient>
+    <linearGradient id="sym-m" x1="30" y1="20" x2="50" y2="46" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d79bea"/>
+      <stop offset="1" stop-color="#9a4fc0"/>
+    </linearGradient>
+    <filter id="sym-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.1" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect x="1.5" y="1.5" width="61" height="61" rx="15" fill="url(#sym-bg)" stroke="#2a313f" stroke-width="1.5"/>
+  <!-- Two agents in symbiosis: interlocking rings (claude cyan + codex magenta) -->
+  <g filter="url(#sym-glow)" fill="none" stroke-width="5.2" stroke-linecap="round">
+    <circle cx="26" cy="32" r="12.5" stroke="url(#sym-c)"/>
+    <circle cx="38" cy="32" r="12.5" stroke="url(#sym-m)"/>
+  </g>
+  <!-- shared core where they overlap -->
+  <circle cx="32" cy="32" r="3.1" fill="#eef2ff"/>
+</svg>

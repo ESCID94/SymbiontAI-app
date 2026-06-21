@@ -1,0 +1,61 @@
+SymbiontAI — End User License Agreement (EULA)
+Copyright (c) 2026 ESCID94. All rights reserved.
+
+This is a proprietary freeware license. It governs the SymbiontAI application
+(the "Software") and its distributable builds. It is NOT an open-source license.
+The source code is not distributed with the Software.
+
+1. Grant of license
+   You are granted a non-exclusive, worldwide, royalty-free right to download,
+   install, and use the Software, free of charge, for personal and commercial
+   purposes, subject to the terms below.
+
+2. Restrictions
+   You may NOT, without the prior written permission of the copyright holder:
+   (a) sell, resell, rent, lease, sublicense, or otherwise commercially
+       redistribute the Software or charge for access to it;
+   (b) reverse engineer, decompile, or disassemble the Software, except to the
+       extent this restriction is prohibited by applicable law;
+   (c) modify, adapt, or create derivative works of the Software;
+   (d) remove, alter, or obscure any copyright, trademark, or other proprietary
+       notices; or
+   (e) use the SymbiontAI name, logo, or branding to endorse or promote products
+       without permission (see Section 6).
+
+   You MAY redistribute the unmodified, official build of the Software free of
+   charge, provided this license is included unchanged and no fee is charged.
+
+3. Third-party tools and services
+   The Software operates by driving third-party command-line tools (including
+   Anthropic's Claude Code and OpenAI's Codex) that you install and authenticate
+   yourself. Your use of those tools is governed by their own terms and pricing.
+   The Software stores no credentials and transmits no data to the authors.
+
+4. No warranty
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+
+5. Limitation of liability
+   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+   DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR
+   OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+   OR OTHER DEALINGS IN THE SOFTWARE.
+
+6. Trademarks and branding
+   The "SymbiontAI" name and logo are reserved. All rights reserved unless
+   explicitly licensed in writing.
+
+7. Documentation and media
+   Accompanying documentation, screenshots, and mockups (where published in the
+   public distribution repository) are licensed under Creative Commons
+   Attribution 4.0 International (CC BY 4.0), unless stated otherwise. This
+   software EULA does not apply to those materials.
+
+8. Termination
+   This license terminates automatically if you breach its terms. On termination
+   you must cease use and destroy all copies of the Software.
+
+---
+NOTE: This EULA is provided as a starting point and is not legal advice. Have it
+reviewed by a qualified attorney before commercial release.

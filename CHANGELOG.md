@@ -5,6 +5,14 @@ All notable changes to SymbiontAI are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.2] — 2026-06-21
+
+### Fixed
+- **Removed the last estimated-cost display.** The task board panel still showed a
+  per-task `$` estimate; it now shows only the task status. No estimated token or
+  dollar figures appear anywhere in the UI — only real usage from each provider's
+  official status remains.
+
 ## [1.1.1] — 2026-06-21
 
 ### Fixed
@@ -131,6 +139,7 @@ First packaged release of the SymbiontAI desktop app.
   worktree-per-task isolation, rule-based router + DAG scheduler, turn-based
   mailbox, the symbiosis review loop, and an Ink TUI.
 
+[1.1.2]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.1.2
 [1.1.1]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.1.1
 [1.1.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.1.0
 [1.0.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.0.0

@@ -76,6 +76,9 @@ commands.
 - **Live agent sessions** — chatting with an agent is a long-lived, stateful
   session (like an open terminal), not a cold command per message. Sessions
   **survive app restarts**.
+- **Conversation history** — every chat is saved locally with a title and
+  timestamp; browse and reopen past conversations per agent (🕘), start a fresh
+  one (✚), and `/resume` or `/rename` them. Reopening the app restores both panes.
 - **True parallel work** — dispatch to both agents at once, each in its own git
   worktree, with no collisions.
 - **Cross-agent communication** — a shared relay lets each agent see what you and

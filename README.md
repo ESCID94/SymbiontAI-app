@@ -96,6 +96,9 @@ commands.
   panels.
 - **Built-in SDLC library** — curated, customizable skills and agent personas for
   the software lifecycle.
+- **Handoffs (terminal ⇄ IDE)** — move work between a CLI session (Claude Code /
+  Codex) and the IDE as a standardized package (a contract + state + a kickoff
+  prompt), in both directions, inert until you say go.
 
 ## Privacy & security
 

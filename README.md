@@ -86,9 +86,11 @@ commands.
   nothing lands without your review and an explicit merge.
 - **Honest statusline** — shows each provider's **real** subscription usage from
   official sources (Claude `/usage`, Codex `/status`) — never an estimate.
-- **Full IDE** — file tree, syntax-highlighted viewer/editor that docks beside or
-  below the agent panes, drag-and-drop tabs, chat attachments, themes, and GitHub
-  & git panels.
+- **Customizable workspace** — claude, codex, and a tabbed viewer/editor are
+  movable panels: arrange them as 1–3 resizable columns, move any to the right
+  sidebar as tabs, hide, or maximize one full-screen. Plus a file tree, syntax
+  highlighting, chat attachments (paste screenshots), themes, and GitHub & git
+  panels.
 - **Built-in SDLC library** — curated, customizable skills and agent personas for
   the software lifecycle.
 

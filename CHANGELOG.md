@@ -5,6 +5,35 @@ All notable changes to SymbiontAI are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] — 2026-06-21
+
+### Added
+- **Conversation history & resume.** Every chat conversation is saved locally
+  (under `.sym/sessions/`) with an auto title, timestamps, and a transcript. Each
+  agent header has a **🕘 chats** dropdown of recent conversations — open one to
+  replay it and continue that thread — and a **✚ new chat** button.
+- **`/resume`** lists saved conversations (id · time · title) and restores the
+  latest; **`/resume <id>`** reopens a specific one. **`/rename <id> <title>`**
+  (and a ✎ button) renames a conversation.
+- **New chat archives the current thread** into history before clearing, so a
+  conversation is never lost.
+- **One-time backfill** imports prior relay conversation into the history as
+  read-only entries, so chats that predate this feature are still browsable.
+- **Both agent panes restore on reopen** — reconnecting replays the prior
+  conversation into the panes (not just the conversation tab).
+- **Model & reasoning-effort controls** (Settings → Providers): Claude model,
+  Codex model, and Codex effort (low/medium/high). Codex applies on the next
+  turn; Claude restarts its session. Lower Codex effort for faster replies.
+- **Per-agent "new chat"** and external links (feedback form) open in the browser.
+
+### Changed
+- Suggestion lists (`@agent`/`@skill`/`/command`) keep the highlighted item in
+  view when navigating with the arrow keys.
+
+### Fixed
+- Clicking a tree file, or view/edit on an agent/skill, now reliably brings the
+  viewer/editor to the front even when it lives in the right sidebar.
+
 ## [1.2.0] — 2026-06-21
 
 ### Added
@@ -172,6 +201,7 @@ First packaged release of the SymbiontAI desktop app.
   worktree-per-task isolation, rule-based router + DAG scheduler, turn-based
   mailbox, the symbiosis review loop, and an Ink TUI.
 
+[1.3.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.3.0
 [1.2.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.2.0
 [1.1.2]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.1.2
 [1.1.1]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.1.1

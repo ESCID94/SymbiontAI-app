@@ -1,4 +1,6 @@
 title: SymbiontAI
 description: A local, offline multi-agent desktop IDE — Claude Code and Codex, in symbiosis.
 theme: jekyll-theme-cayman
-show_downloads: true
+# The app download is a release asset (see the layout), not the repo source
+# archive — so the theme's auto .zip/.tar.gz buttons are disabled.
+show_downloads: false

@@ -5,6 +5,48 @@ All notable changes to SymbiontAI are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] — 2026-06-24
+
+The cross-platform + multi-provider release. SymbiontAI now runs on **Windows,
+macOS, and Linux**, and can drive **up to five AI CLIs** — Claude Code, Codex,
+Gemini, GitHub Copilot, and Antigravity — chosen per project. Claude + Codex
+behaviour is unchanged; the new providers are purely additive and off by default.
+
+### Added
+- **Cross-platform packaging (macOS / Linux / Windows).** The bundled-Node
+  fetcher resolves the right Node build for `darwin-arm64`, `darwin-x64`,
+  `linux-x64`, `linux-arm64`, and `win32-x64/arm64`, lays the binary out where
+  each platform's launcher expects it, and marks it executable on Unix. The
+  packager stores symlinks (`zip -y`) so a macOS `.app` bundle stays valid.
+- **Three new AI providers**, selectable alongside Claude Code and Codex:
+  - **Gemini CLI** — full chat + coding support via `gemini -o stream-json`,
+    with session continuity. Plan/yolo approval modes map to read-only vs. write.
+  - **GitHub Copilot CLI** — full chat + coding support via JSON output, with
+    session continuity. Spend is reported as premium-request count, not tokens.
+  - **Antigravity CLI** (`agy`) — **dispatch-only** (one-shot coding tasks; the
+    worktree diff is the deliverable). Its print mode does not stream text back,
+    so it is not offered for chat or as a constrained reviewer.
+- **Provider registry** — a single source of truth (`PROVIDER_CATALOG` +
+  `ProviderRegistry`) that every surface (orchestrator, daemon, TUI, desktop
+  panes) derives from. Enabling a provider is one config block; the panes,
+  routing targets, `@mentions`, status lines, and settings rows all follow.
+- **Per-project provider selection.** `sym.config.yaml` lists which providers are
+  active; only configured providers that ship an adapter appear. Routing rules
+  (`rules.*.provider`, `second_opinion.provider`) may now name any active provider.
+
+### Changed
+- The desktop and TUI agent panes are now generated dynamically from the active
+  provider set instead of two hardcoded Claude/Codex columns, with a per-provider
+  accent color. Model/effort overrides are keyed by provider.
+- Runtime model/effort overrides generalized from Claude/Codex-specific fields to
+  per-provider maps.
+
+### Notes
+- **No behavioural change for Claude or Codex** — the existing test suite passes
+  unedited; the registry refactor is byte-for-byte compatible for the original two.
+- New providers require their own CLI installed and authenticated; each
+  `healthcheck` is a cheap `--version` probe. No test spends money.
+
 ## [2.0.0] — 2026-06-21
 
 ### Added
@@ -269,6 +311,7 @@ First packaged release of the SymbiontAI desktop app.
   worktree-per-task isolation, rule-based router + DAG scheduler, turn-based
   mailbox, the symbiosis review loop, and an Ink TUI.
 
+[3.0.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v3.0.0
 [2.0.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v2.0.0
 [1.4.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.4.0
 [1.3.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.3.0

@@ -39,6 +39,7 @@ no internet exposure. The only network traffic is whatever your own AI CLIs make
 |---|---|
 | Windows (x64) | `SymbiontAI-<version>-win32-x64.zip` |
 | macOS (Apple Silicon) | `SymbiontAI-<version>-darwin-arm64.zip` |
+| macOS (Intel) | `SymbiontAI-<version>-darwin-x64.zip` |
 | Linux (x64) | `SymbiontAI-<version>-linux-x64.zip` |
 
 Direct links to the latest build for each platform:
@@ -46,6 +47,7 @@ Direct links to the latest build for each platform:
 ```
 https://github.com/ESCID94/SymbiontAI-app/releases/latest/download/SymbiontAI-win32-x64.zip
 https://github.com/ESCID94/SymbiontAI-app/releases/latest/download/SymbiontAI-darwin-arm64.zip
+https://github.com/ESCID94/SymbiontAI-app/releases/latest/download/SymbiontAI-darwin-x64.zip
 https://github.com/ESCID94/SymbiontAI-app/releases/latest/download/SymbiontAI-linux-x64.zip
 ```
 
@@ -62,13 +64,14 @@ Every release ships a `checksums.txt` with SHA-256 hashes.
 
 ```powershell
 # Windows (PowerShell)
-Get-FileHash .\SymbiontAI-3.0.0-win32-x64.zip -Algorithm SHA256
+Get-FileHash .\SymbiontAI-3.1.0-win32-x64.zip -Algorithm SHA256
 ```
 
 ```bash
 # macOS / Linux
-shasum -a 256 SymbiontAI-3.0.0-darwin-arm64.zip   # macOS
-sha256sum SymbiontAI-3.0.0-linux-x64.zip          # Linux
+shasum -a 256 SymbiontAI-3.1.0-darwin-arm64.zip   # macOS (Apple Silicon)
+shasum -a 256 SymbiontAI-3.1.0-darwin-x64.zip     # macOS (Intel)
+sha256sum SymbiontAI-3.1.0-linux-x64.zip          # Linux
 ```
 
 Compare the result with the value in `checksums.txt`.
@@ -97,8 +100,9 @@ commands.
   timestamp; browse and reopen past conversations per agent (🕘), start a fresh
   one (✚), and `/resume` or `/rename` them. Reopening the app restores both panes.
 - **Choose your agents** — enable any of **Claude Code, Codex, Gemini, GitHub
-  Copilot, and Antigravity** per project; the panes, routing, `@mentions`, and
-  statuslines all follow your selection automatically.
+  Copilot, and Antigravity** per project from an **in-app Settings → Providers
+  picker** (no config editing); the panes, routing, `@mentions`, and statuslines
+  all follow your selection automatically.
 - **True parallel work** — dispatch to multiple agents at once, each in its own
   git worktree, with no collisions.
 - **Cross-agent communication** — a shared relay lets each agent see what you and

@@ -17,10 +17,12 @@
     <header class="page-header" role="banner">
       <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
-      <!-- Real app download (a release asset). The default Cayman .zip/.tar.gz
+      <!-- Real app downloads (release assets). The default Cayman .zip/.tar.gz
            buttons are NOT shown — they point at the repo source archive, not the
-           built app. -->
-      <a href="https://github.com/ESCID94/SymbiontAI-app/releases/latest/download/SymbiontAI-win32-x64.zip" class="btn btn-primary">⬇ Download for Windows (.zip)</a>
+           built app. As of 3.0.0 there is a build for each platform. -->
+      <a href="https://github.com/ESCID94/SymbiontAI-app/releases/latest/download/SymbiontAI-win32-x64.zip" class="btn btn-primary">⬇ Windows (.zip)</a>
+      <a href="https://github.com/ESCID94/SymbiontAI-app/releases/latest/download/SymbiontAI-darwin-arm64.zip" class="btn btn-primary">⬇ macOS (Apple Silicon)</a>
+      <a href="https://github.com/ESCID94/SymbiontAI-app/releases/latest/download/SymbiontAI-linux-x64.zip" class="btn btn-primary">⬇ Linux (x64)</a>
       <a href="https://github.com/ESCID94/SymbiontAI-app/releases/latest" class="btn">All releases</a>
       {% if site.github.is_project_page %}
         <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>

@@ -5,6 +5,24 @@ All notable changes to SymbiontAI are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.2.0] — 2026-06-25
+
+### Added
+- **Antigravity can now chat (experimental).** The `agy` CLI streams no output in
+  print mode, so Antigravity used to be coding-tasks-only. It can now be driven
+  **interactively** behind the scenes and its reply captured and shown as a normal
+  chat turn — so `@antigravity`, `/converse`, and the shared relay all work with it.
+  Turn it on in **Settings → Providers** (it's opt-in). It's fully isolated: the
+  other four providers are unaffected, and on any machine where the interactive
+  driver can't run it **gracefully falls back to coding-tasks-only** — nothing
+  breaks.
+
+### Notes
+- Honest caveats: the first Antigravity reply has a short (~9 s) warm-up, and
+  because its output is scraped from a terminal it's a bit more brittle than the
+  other providers (it degrades gracefully if anything changes). Each platform's
+  build bundles the small native helper it needs (~2–5 MB).
+
 ## [3.1.0] — 2026-06-25
 
 Hardening release that validates and rounds out the v3.0 multi-provider work. The
@@ -346,6 +364,7 @@ First packaged release of the SymbiontAI desktop app.
   worktree-per-task isolation, rule-based router + DAG scheduler, turn-based
   mailbox, the symbiosis review loop, and an Ink TUI.
 
+[3.2.0]: https://github.com/ESCID94/SymbiontAI-app/releases/tag/v3.2.0
 [3.1.0]: https://github.com/ESCID94/SymbiontAI-app/releases/tag/v3.1.0
 [3.0.0]: https://github.com/ESCID94/SymbiontAI-app/releases/tag/v3.0.0
 [2.0.0]: https://github.com/ESCID94/SymbiontAI-app/releases/tag/v2.0.0

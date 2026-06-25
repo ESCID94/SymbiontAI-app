@@ -24,7 +24,7 @@ implements while another independently reviews.
 
 It runs **Claude Code** and **Codex** as its proven core pair, and can also drive
 **Gemini CLI** and **GitHub Copilot CLI** (chat + coding), plus **Antigravity**
-for *dispatch-only* coding tasks (it runs work but doesn't stream chat). Enable
+(coding tasks, with **experimental chat**). Enable
 and mix whichever you have, per project — you bring and authenticate your own CLIs;
 the app coordinates them.
 
@@ -86,14 +86,14 @@ Every release ships a `checksums.txt` with SHA-256 hashes.
 
 ```powershell
 # Windows (PowerShell)
-Get-FileHash .\SymbiontAI-3.1.0-win32-x64.zip -Algorithm SHA256
+Get-FileHash .\SymbiontAI-3.2.0-win32-x64.zip -Algorithm SHA256
 ```
 
 ```bash
 # macOS / Linux
-shasum -a 256 SymbiontAI-3.1.0-darwin-arm64.zip   # macOS (Apple Silicon)
-shasum -a 256 SymbiontAI-3.1.0-darwin-x64.zip     # macOS (Intel)
-sha256sum SymbiontAI-3.1.0-linux-x64.zip          # Linux
+shasum -a 256 SymbiontAI-3.2.0-darwin-arm64.zip   # macOS (Apple Silicon)
+shasum -a 256 SymbiontAI-3.2.0-darwin-x64.zip     # macOS (Intel)
+sha256sum SymbiontAI-3.2.0-linux-x64.zip          # Linux
 ```
 
 Compare the result with the value in `checksums.txt`.

@@ -5,6 +5,41 @@ All notable changes to SymbiontAI are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.0] — 2026-06-25
+
+Hardening release that validates and rounds out the v3.0 multi-provider work. The
+headline addition is an in-app provider selector — no more hand-editing config.
+
+### Added
+- **In-app provider selector (Settings → Providers).** Enable or disable any of
+  the five providers (Claude, Codex, Gemini, Copilot, Antigravity) with a
+  checkbox; **Apply & reload** rewrites the config and reloads the project — no
+  hand-editing. A **max-simultaneous cap** (default 2) keeps teams small with a
+  complexity warning when you go higher; disabling a routed provider **remaps
+  routing automatically**.
+- **Provider error guide.** Failures now show a clear fix (Gemini → set
+  `GEMINI_API_KEY`; Copilot → `/login` or "session expired, start a new chat";
+  missing CLI → "not on PATH") instead of a bare exit code. Copilot auto-retries
+  once when a saved session has expired.
+- **Animated dark/light theme toggle** (moon ⇄ sun), a **resizable message box**
+  (drag to grow, Shift+Enter for a newline), and a **Setup & welcome** shortcut.
+- **Intel-Mac build** (`darwin-x64`) alongside Apple Silicon, with a CI guard that
+  fails the build if a runner's architecture drifts from its label.
+
+### Changed
+- **Settings drawer redesigned** into collapsible groups (Providers · Appearance ·
+  Layout · Advanced); the **hamburger** now toggles it and stays visible.
+- **Onboarding** reframed to list the AI providers it **detected** (all five, ✓/✗,
+  enabled vs. available) rather than "required prerequisites" — you only need one.
+- The **How to use** guide rewritten for five providers and Windows/macOS/Linux,
+  with a Troubleshooting section.
+
+### Fixed
+- `@all` no longer breaks with a dispatch-only provider enabled; `/converse` warns
+  instead of doing nothing; `/deliver` no longer misroutes to an unconfigured
+  Claude; Copilot/Gemini success is no longer misreported as failure; the daemon
+  fails fast with a clear message under Node < 22.
+
 ## [3.0.0] — 2026-06-24
 
 The cross-platform + multi-provider release. SymbiontAI now runs on **Windows,
@@ -311,12 +346,13 @@ First packaged release of the SymbiontAI desktop app.
   worktree-per-task isolation, rule-based router + DAG scheduler, turn-based
   mailbox, the symbiosis review loop, and an Ink TUI.
 
-[3.0.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v3.0.0
-[2.0.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v2.0.0
-[1.4.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.4.0
-[1.3.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.3.0
-[1.2.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.2.0
-[1.1.2]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.1.2
-[1.1.1]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.1.1
-[1.1.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.1.0
-[1.0.0]: https://github.com/ESCID94/SymbiontAI/releases/tag/v1.0.0
+[3.1.0]: https://github.com/ESCID94/SymbiontAI-app/releases/tag/v3.1.0
+[3.0.0]: https://github.com/ESCID94/SymbiontAI-app/releases/tag/v3.0.0
+[2.0.0]: https://github.com/ESCID94/SymbiontAI-app/releases/tag/v2.0.0
+[1.4.0]: https://github.com/ESCID94/SymbiontAI-app/releases/tag/v1.4.0
+[1.3.0]: https://github.com/ESCID94/SymbiontAI-app/releases/tag/v1.3.0
+[1.2.0]: https://github.com/ESCID94/SymbiontAI-app/releases/tag/v1.2.0
+[1.1.2]: https://github.com/ESCID94/SymbiontAI-app/releases/tag/v1.1.2
+[1.1.1]: https://github.com/ESCID94/SymbiontAI-app/releases/tag/v1.1.1
+[1.1.0]: https://github.com/ESCID94/SymbiontAI-app/releases/tag/v1.1.0
+[1.0.0]: https://github.com/ESCID94/SymbiontAI-app/releases/tag/v1.0.0

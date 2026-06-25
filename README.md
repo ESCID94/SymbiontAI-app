@@ -22,9 +22,11 @@ them work *together*: a shared task board, git-worktree isolation per task,
 turn-based messaging between the agents, and a **symbiosis loop** where one agent
 implements while another independently reviews.
 
-Pick from **five AI CLIs** per project — **Claude Code**, **Codex**, **Gemini
-CLI**, **GitHub Copilot CLI**, and **Antigravity** — and mix any of them on the
-same team. You bring and authenticate your own CLIs; the app coordinates them.
+It runs **Claude Code** and **Codex** as its proven core pair, and can also drive
+**Gemini CLI** and **GitHub Copilot CLI** (chat + coding), plus **Antigravity**
+for *dispatch-only* coding tasks (it runs work but doesn't stream chat). Enable
+and mix whichever you have, per project — you bring and authenticate your own CLIs;
+the app coordinates them.
 
 It is **fully local and offline by design** — no telemetry, no data collection,
 no internet exposure. The only network traffic is whatever your own AI CLIs make.
@@ -57,6 +59,26 @@ launch opens an onboarding wizard.
 
 > **As of 3.0.0, SymbiontAI runs natively on Windows, macOS, and Linux.** Each
 > release ships a build for all three.
+
+### First launch — clearing the "unidentified developer" warning
+
+The app is **not code-signed yet**, so each OS shows a one-time safety prompt for
+software it can't attribute to a registered developer. This is expected for an
+indie build — here's how to open it:
+
+- **Windows** — SmartScreen shows *"Windows protected your PC."* Click
+  **More info → Run anyway**.
+- **macOS** — Gatekeeper blocks an unsigned app. **Right-click (or Control-click)
+  `SymbiontAI.app` → Open → Open.** If macOS still refuses (Sequoia is stricter),
+  clear the quarantine flag once in Terminal:
+  ```bash
+  xattr -dr com.apple.quarantine /path/to/SymbiontAI.app
+  ```
+- **Linux** — if the binary isn't already executable: `chmod +x SymbiontAI` (or
+  the launcher inside the unzipped folder), then run it.
+
+SymbiontAI is **fully local and sends no telemetry** — the only network calls are
+the ones your own AI CLIs make. (Signed/notarized builds are planned.)
 
 ### Verify your download
 

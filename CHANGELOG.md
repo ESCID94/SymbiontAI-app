@@ -5,6 +5,48 @@ All notable changes to SymbiontAI are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.3.0] — 2026-06-28
+
+Reliability release focused on cross-agent messaging. Codex and Copilot now
+genuinely see and build on each other's messages in chat and `/converse` — the
+core promise of the symbiosis loop — and Codex chat is dramatically faster.
+
+### Fixed
+- **Agents now reliably see each other's messages (Windows).** Codex and Copilot
+  were receiving only the **first line** of each prompt, so the appended
+  cross-agent context block was silently dropped and they replied *"I can't see
+  the other agent's message."* Root cause: on Windows the prompt was passed as a
+  **command-line argument** through the npm `.cmd` shim, and `cmd.exe` truncates a
+  multi-line argument at the first newline. Codex now receives its prompt over
+  **stdin** (the way Claude always has), and Copilot (which has no stdin prompt
+  mode) **bypasses the `.cmd` shim** by spawning its Node entry directly. The
+  shared one-shot dispatch path (coding tasks) is covered too.
+- **Codex `resume` turns no longer come back empty.** `codex exec resume` parses
+  its flags *before* the subcommand; the corrected argument order fixes round-2+
+  turns in `/converse` (previously they failed with exit 2 and produced nothing).
+
+### Changed
+- **Codex chat is much faster and more reliable.** Symbiont now drives Codex under
+  a lean `CODEX_HOME` — your real login with a minimal config — so a heavy
+  interactive `~/.codex` (many MCP servers, plugins, high reasoning effort) no
+  longer makes every turn slow (~40-50 s → ~6-8 s) or floods the context window so
+  the conversation gets squeezed out. Controlled by the existing
+  `providers.codex.fast` flag; falls back to your default `CODEX_HOME` if you're
+  not logged in, so a working setup is never broken.
+- **Cleaner cross-agent context.** Empty or echoed agent turns (e.g. an agent that
+  parrots its prompt) are no longer recorded into the shared relay, where they
+  poisoned the next agent's context with nested headers and repeated instructions.
+  `/converse` now scopes context to the current discussion, so a stale prior topic
+  can't bleed in. Turns that produce nothing usable surface a clear notice instead
+  of failing silently.
+
+### Added
+- **Tools menu (desktop).** A new **Tools** menu (between View and Help) with
+  **Clear Cache** — wipe conversations, messages, the task board, and cache for the
+  current project (git worktrees with uncommitted agent work are preserved) — and
+  **Reset App** — erase all local app data and restart at first-run setup. Both
+  show a clear, explicit warning before doing anything.
+
 ## [3.2.0] — 2026-06-25
 
 ### Added

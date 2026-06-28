@@ -5,7 +5,7 @@
 <p align="center"><em>Your choice of AI coding agents, in symbiosis.</em></p>
 
 <p align="center">
-  <a href="https://github.com/ESCID94/SymbiontAI-app/releases/latest"><img src="https://img.shields.io/github/v/release/ESCID94/SymbiontAI-app?label=download&style=for-the-badge" alt="Latest release" /></a>
+  <a href="https://github.com/ESCID94/SymbiontAI-app/releases/latest"><img src="https://img.shields.io/github/v/release/ESCID94/SymbiontAI-app?label=download&style=for-the-badge&cacheSeconds=300" alt="Latest release" /></a>
 </p>
 
 > **This is the official public download & documentation page for SymbiontAI.**

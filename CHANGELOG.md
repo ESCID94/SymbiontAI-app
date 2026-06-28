@@ -5,6 +5,23 @@ All notable changes to SymbiontAI are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.3.1] — 2026-06-28
+
+Desktop UI polish.
+
+### Fixed
+- **Copilot replies render full-width again.** Streamed assistant text now
+  accumulates into a single block per turn instead of a new block per token, so a
+  provider that streams word-by-word (Copilot) no longer collapses into a
+  one-word-wide column. Any provider — chunked or token-by-token — flows normally.
+
+### Changed
+- **Cleaner model configuration (Settings → Providers → Tuning).** Each provider
+  now has its own card — a colored dot, name, and capability tag — with clearly
+  separated **Model** and **Effort** fields, replacing the cramped stack of labels.
+  Model selection offers common per-provider suggestions (type-to-filter); blank
+  still means the provider's config default.
+
 ## [3.3.0] — 2026-06-28
 
 Reliability release focused on cross-agent messaging. Codex and Copilot now
